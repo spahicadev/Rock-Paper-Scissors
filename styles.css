@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Play, sans-serif;
+  
+
+}
+
+.initial-page {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(#e66465, #9198e5);
+}
+
+.header-initial-page {
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: transparent;
+}
+
+ul {
+  display: flex;
+  column-gap: 2.5rem;
+}
+
+ul, li, a {
+  text-decoration: none;
+  list-style: none;
+  color: purple;
+}
+
+.modal-play {
+  height: 600px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0px 50px;
+}
+
+.hero-headline, .hero-ilustration {
+  margin: auto 0;
+}
+
+.hero-headline {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem;
+  border-radius: 1rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  padding: 20px;
+}
+
+.cta-button {
+  width: 120px;
+  padding: 8px 6px;
+  border: none;
+  background-color: #9198e5;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+svg {
+  width: 40px;
+  border-radius: 25px;
+  border: 2px solid #fdf2e9;
+  padding: 7px;
+  cursor: pointer;
+}
+
+.footer-inital-page {
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  bottom: 0%;
+}
+
+.footer-content {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.git, .li {
+  width: 30px;
+  margin: 0 auto;
+}
+
+.copyright {
+  font-size: 22px;
+  line-height: 2.2rem;
+}
+
+
+
