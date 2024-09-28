@@ -189,6 +189,95 @@ svg {
 }
 
 
+.playground-page {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 16% 1fr;
+  position: relative;
+}
 
+#sidebar {
+  height: 100vh;
+  width: 220px;
+  background: linear-gradient(#e66465, #9198e5);
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headline-sidebar {
+  text-align: center;
+}
+
+hr {
+ width: 100%;
+ height: 2px;
+ border: none;
+ background-color: black;
+}
+
+.play-box {
+  width: 800px;
+  height: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.playerBox{
+  height: 100%;
+  border-right: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 12px;
+}
+
+.computerBox {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 12px;
+}
+
+.moves-box {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.moves {
+  width: 50px;
+  height: 50px;
+}
+
+.round-overview {
+  width: 600px;
+  height: 100px;
+  background-color: red;
+}
+
+.btn-homepage {
+  border: none;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.06);
+  font-size: 15px;
+}
+
+.restart-btn {
+  position: absolute;
+  right: 3%;
+  top: 3%;
+}
 
 

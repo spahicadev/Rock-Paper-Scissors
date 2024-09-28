@@ -9,6 +9,12 @@ const aboutPopup = document.querySelector('.about-popup-js');
 const aboutIcon = document.querySelector('.about-document-js');
 const intrestingPopup = document.querySelector('.intresting-popup-js');
 const aboutIntrestingIcon = document.querySelector('.intresting-document-js');
+const goToPlay = document.querySelector('.go-play-js')
+
+
+goToPlay.addEventListener('click', () => {
+  window.open('/playground.html')
+})
 
 
 itemListRules.addEventListener('click', (e) => {
