@@ -4,28 +4,25 @@
     <meta charset="utf-8">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
    <section class="initial-page">
       <nav class="header-initial-page">
         <ul>
-          <li><a href="">PLAY</a></li>
-          <li><a href="">RULES</a></li>
+          <li>PLAY</li>
+          <li class="list-item list-item-js">RULES</li>
         </ul>
       </nav>
       <div class="modal-play">
         <div class="hero-headline">
           <h1>Rock Paper Scissors</h1>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla labore illum error suscipit </p>
+          <p>Try your luck in a game against the computer</p>
           <button class="cta-button">Go play</button>
           <div class="about">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <svg class="about-document about-document-js" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
             </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <svg class="intresting-document intresting-document-js" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 0 1 9 9v.375M10.125 2.25A3.375 3.375 0 0 1 13.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 0 1 3.375 3.375M9 15l2.25 2.25L15 12" />
             </svg>
             <span>...</span>            
@@ -45,7 +42,56 @@
        </div>
       </footer>
    </section>
-  
+   <article class="rules-popup rules-popup-js">
+      <div class="rules-modal-box">
+       <div class="header-popup"> 
+        <svg class="close-button close-button-js" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </div>
+      <div class="popup-text">
+      <p>
+        <strong>Rock, Paper, Scissors Rules:</strong>
+      </p>
+        <ol>
+          <li>Rock beats Scissors</li>
+          <li>Scissors beats Paper</li>
+          <li>Paper beats Rock</li>
+        </ol>
+      <p>
+        Each player picks one option, and the winner is determined based on these simple interactions. If both players choose the same, it's a tie!
+      </p>
+      </div>  
+      </div>
+   </article>
+   <article class="about-popup about-popup-js">
+    <div class="about-modal-box">
+      <div class="header-popup"> 
+       <svg class="close-button about-close-button-js" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+       </svg>
+     </div>
+     <div class="popup-text">
+      <p>
+        Rock, Paper, Scissors is a simple hand game with ancient roots, believed to have originated in China over 2,000 years ago, known as "shoushiling." The game spread to Japan, where it became popular as "jan-ken" with the familiar rock, paper, and scissors gestures.
+      </p>
+     </div>  
+     </div>
+   </article>
+   <article class="intresting-popup intresting-popup-js">
+    <div class="intresting-modal-box">
+      <div class="header-popup"> 
+       <svg class="close-button intresting-close-button-js" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+       </svg>
+     </div>
+     <div class="popup-text">
+      <p>
+        Interestingly, Rock, Paper, Scissors has been used for more than just fun—it has settled legal disputes, business decisions, and even international conflicts. In 2005, a Japanese art collector decided who would get to auction his multi-million dollar collection by asking the auction houses to play Rock, Paper, Scissors!
+      </p>
+     </div>  
+     </div>
+   </article>
   <script src="script.js"></script>
   </body>
 </html>

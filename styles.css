@@ -5,14 +5,17 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Play, sans-serif;
-  
-
 }
 
 .initial-page {
   height: 100vh;
   width: 100%;
   background: linear-gradient(#e66465, #9198e5);
+}
+
+.inital-page-popup-active {
+  background: linear-gradient(#e66465, #9198e5);
+  filter: blur(8px);
 }
 
 .header-initial-page {
@@ -26,13 +29,18 @@
 
 ul {
   display: flex;
-  column-gap: 2.5rem;
+  column-gap: 4.5rem;
 }
 
-ul, li, a {
+ul, li {
   text-decoration: none;
   list-style: none;
   color: purple;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: rgba(211, 211, 211, 0.314);
 }
 
 .modal-play {
@@ -63,6 +71,15 @@ ul, li, a {
   background-color: #9198e5;
   border-radius: 4px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  transform: scale(1.1);
+}
+
+.cta-button:active {
+  opacity: 0.6;
 }
 
 svg {
@@ -97,6 +114,81 @@ svg {
   font-size: 22px;
   line-height: 2.2rem;
 }
+
+.rules-popup {
+  height: 220px;
+  width: 500px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -110px;
+  transform: scale(0);
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.about-popup {
+  height: 200px;
+  width: 500px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -100px;
+  transform: scale(0);
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.intresting-popup {
+  height: 200px;
+  width: 500px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -100px;
+  transform: scale(0);
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.popup-show {
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.header-popup {
+  display: flex;
+  justify-content: end;
+  padding: 15px;  
+}
+
+.popup-text {
+  z-index: 10;
+  margin-top: -30px;
+  padding: 4px 12px;
+}
+
+.popup-text > p {
+  margin: 12px 0px;
+}
+
+
 
 
 
