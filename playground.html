@@ -11,52 +11,53 @@
     <h4 class="headline-sidebar">Stats...</h4>
     <div>
       <p>Current round</p>
-      <p>You:</p>
-      <p>Computer:</p>
+      <p>You:<span class="current-round-score-you"></span></p>
+      <p>Computer:<span class="current-round-score-computer"></span></p>
     </div>
     <hr>
     <div>
       <p>Last round</p>
-      <p>You:</p>
-      <p>Computer:</p>
+      <p>You:<span class="last-round-score-you"></span></p>
+      <p>Computer:<span class="last-round-score-computer"></span></p>
     </div>
     <hr>
     <div>
       <p>Total rounds</p>
-        <p>0</p>
+        <p class="total-rounds">0</p>
     </div>
     <hr>
     <div>
       <p>Average wins</p>
-        <p>You:</p>
-        <p>Computer</p>
+        <p>You:<span class="you-avg-wins"></span></p>
+        <p class="computer-avg-wins">Computer</p>
     </div>
     <hr>
-    <button class="btn-homepage btm-homepage-js">Back to homepage</button>
+    <button class="btn-homepage btn-homepage-js">Back to homepage</button>
   </aside>
   <section class="play-box">
     <div class="playerBox">
       <h2>YOU</h2>
-      <p>Choosing...</p>
+      <p class="chosed-move-you">Choosing...</p>
       <div class="moves-box">
-        <img class="moves" src="./assets/rock.svg">
-        <img class="moves" src="./assets/paper.svg">
-        <img class="moves" src="./assets/scissors.svg">
+        <img id="rock" class="moves" src="./assets/rock.svg">
+        <img id="paper" class="moves" src="./assets/paper.svg">
+        <img id="scissors" class="moves" src="./assets/scissors.svg">
       </div>
     </div>
     <div class="computerBox">
       <h2>Computer</h2>
-        <p>Choosing...</p>
+        <p class="chosed-move-computer">Choosing...</p>
         <div class="moves-box">
-          <p>Will take...</p>
+          <p class="chosed-move-computer">Will take...</p>
         </div>
       </div>
     </div>
   </section>
-  <span class="restart-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <span class="restart-btn restart-btn-js"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
     <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
   </svg>
   </span>
   </main>
+  <script src="playground.js"></script>
 </body>
 </html>

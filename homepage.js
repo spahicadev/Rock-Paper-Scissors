@@ -9,14 +9,16 @@ const aboutPopup = document.querySelector('.about-popup-js');
 const aboutIcon = document.querySelector('.about-document-js');
 const intrestingPopup = document.querySelector('.intresting-popup-js');
 const aboutIntrestingIcon = document.querySelector('.intresting-document-js');
-const goToPlay = document.querySelector('.go-play-js')
+const goToPlay = document.querySelector('.go-play-js');
+const restartGame = document.querySelector('.restart-btn-js');
+const backToHomepage = document.querySelector('.btn-homepage-js');
 
-
+//btns
 goToPlay.addEventListener('click', () => {
-  window.open('/playground.html')
+  window.open('/playground.html', '_self');
 })
 
-
+//Homepage DOM, I see similar code. So at the end i will try to do that with DRY conecpt(shorter)
 itemListRules.addEventListener('click', (e) => {
   e.preventDefault();
   rulesPopup.classList.toggle('popup-show');
