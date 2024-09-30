@@ -11,6 +11,7 @@ const AvgWinsComputer = document.querySelector('.computer-avg-wins');
 const movesYou = document.querySelectorAll('.moves');
 const chosingYou = document.querySelector('.chosed-move-you');
 const movesComputer = document.querySelectorAll('.chosed-move-computer');
+const computerBoxMoves = document.querySelector('.computer-box');
 
 //btns
 backToHomepage.addEventListener('click', () => {
@@ -35,6 +36,15 @@ function getRandomMove() {
   return computerMove = moves[Math.floor(Math.random() * moves.length)];
 }
 
+function renderMoveIcon(move) {
+  if(computerMove === move) {
+    movesComputer[0].innerHTML = move
+    movesComputer[1].remove()
+    const img = document.createElement('img');
+    img.setAttribute('src', `./assets/${move}.svg`);   
+    computerBoxMoves.innerHTML = `<img class="moves" src=${img.src}>`
+}
+}
 
 function playingGame() {
 movesYou.forEach((move) => {
@@ -44,6 +54,7 @@ movesYou.forEach((move) => {
       chosingYou.innerHTML = playerMove;
       console.log(playerMove);
       getRandomMove()
+      renderMoveIcon(computerMove);
       console.log(computerMove);
       if(playerMove === computerMove) {
         console.log('TIE');
@@ -54,16 +65,34 @@ movesYou.forEach((move) => {
       }
     }
     else if(e.target.id === 'paper') {
-      playerMove = e.target.id
+      playerMove = e.target.id;
       console.log(playerMove);
+      chosingYou.innerHTML = playerMove;
       getRandomMove()
+      renderMoveIcon(computerMove);
       console.log(computerMove);
+      if(playerMove === computerMove) {
+        console.log('TIE');
+      } else if(playerMove === 'paper' && computerMove === 'rock') {
+        console.log('Computer win');
+      } else if(playerMove === 'paper' && computerMove === 'scissors') {
+        console.log('Computer win')
+      }
     }
     else if(e.target.id === 'scissors') {
       playerMove = e.target.id
+      chosingYou.innerHTML = playerMove;
       console.log(playerMove);
       getRandomMove()
+      renderMoveIcon(computerMove);
       console.log(computerMove);
+      if(playerMove === computerMove) {
+        console.log('TIE');
+      } else if(playerMove === 'scissors' && computerMove === 'rock') {
+        console.log('Computer win');
+      } else if(playerMove === 'scissors' && computerMove === 'paper') {
+        console.log('Player win')
+      }
     }
   })
 })
