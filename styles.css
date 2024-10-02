@@ -189,6 +189,20 @@ svg {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+}
+
+.cta-play-again {
+  margin-top: 10px;
+  background-color: #9198e5;
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cta-play-again:active {
+  opacity: 0.6;
 }
 
 .popup-show {
@@ -299,6 +313,7 @@ hr {
   position: absolute;
   right: 3%;
   top: 3%;
+  cursor: pointer;
 }
 
 

@@ -14,18 +14,21 @@ const movesComputer = document.querySelectorAll('.chosed-move-computer');
 const computerBoxMoves = document.querySelector('.computer-box');
 const winPopup = document.querySelector('.popup-win-js');
 const playgroundPage = document.querySelector('.playground-page');
+const popupWinText = document.querySelector('.win-text');
+const ctaPlayAgain = document.querySelector('.cta-play-again');
 
 //btns
 backToHomepage.addEventListener('click', () => {
   window.open('/index.html', '_self')
 })
 
+
 //STATEs
 let playerCurrentScore = 0;
 let computerCurrentScore = 0;
 let playerLastRoundScore = 0;
 let computerLastRoundScore = 0;
-let rounds = 0;
+let rounds = localStorage.getItem('key') || 0;
 let playerAvgWins;
 let computerAvgWins;
 let allRounds = [];
@@ -48,16 +51,35 @@ function renderMoveIcon(move) {
 }
 }
 
+totalRounds.innerHTML = localStorage.getItem('key') || rounds;
+
 function checkWinner() {
   if(playerCurrentScore === 3) {
     winPopup.classList.toggle('popup-show');
     playgroundPage.classList.toggle('playground-page-popup-active');
+    popupWinText.innerHTML = `Player win <br> Player score: ${playerCurrentScore} <br> Computer score: ${computerCurrentScore}`;
+    rounds++;
+    localStorage.setItem('key', rounds);
+    totalRounds.innerHTML = localStorage.getItem('key') || rounds;
+    
+    
   } 
   else if(computerCurrentScore === 3) {
     winPopup.classList.toggle('popup-show');
     playgroundPage.classList.toggle('playground-page-popup-active');
+    popupWinText.innerHTML = `Computer win <br> Computer score: ${computerCurrentScore} <br> Player score: ${playerCurrentScore}`;
+    rounds++;
+    localStorage.setItem('key', rounds);
+    totalRounds.innerHTML = localStorage.getItem('key') || rounds;
+    
   } 
-
+  ctaPlayAgain.addEventListener('click', (e) => {
+    e.preventDefault();
+    winPopup.classList.remove('popup-show');
+    playgroundPage.classList.remove('playground-page-popup-active');
+    resetStates();
+  })
+  
 }
 
 function playingGame() {
@@ -138,18 +160,20 @@ movesYou.forEach((move) => {
 
 playingGame();
 
+const resetStates = () => {
+  playerCurrentScore = 0;
+  computerCurrentScore = 0;
+  currentRoundScoreComputer.innerHTML = computerCurrentScore;
+  currentRoundScoreYou.innerHTML = playerCurrentScore;
+  movesComputer[0].innerHTML = `Choosing...`
+  computerBoxMoves.innerHTML = ``;
+  computerBoxMoves.innerHTML = `Will take...`;
+  chosingYou.innerHTML = `Choosing...`
+  playerMove = null;
+  computerMove = null;
+}
 
-
-
-
-
-
-
-
-
-
-
-
+restartGame.addEventListener('click', resetStates);
 
 
 
