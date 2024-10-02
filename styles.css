@@ -206,7 +206,7 @@ svg {
 }
 
 .popup-show {
-  transform: scale(2);
+  transform: scale(1.2);
   opacity: 1;
   visibility: visible;
 }
@@ -246,6 +246,7 @@ svg {
   row-gap: 2rem;
   align-items: center;
   justify-content: space-between;
+  text-align: center;
 }
 
 .headline-sidebar {

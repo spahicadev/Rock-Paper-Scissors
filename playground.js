@@ -52,27 +52,71 @@ function renderMoveIcon(move) {
 }
 
 totalRounds.innerHTML = localStorage.getItem('key') || rounds;
-
+let playerWin = 0;
+let computerWin = 0;
+playerAvgWins = 0;
+computerAvgWins = 0;
 function checkWinner() {
   if(playerCurrentScore === 3) {
     winPopup.classList.toggle('popup-show');
     playgroundPage.classList.toggle('playground-page-popup-active');
     popupWinText.innerHTML = `Player win <br> Player score: ${playerCurrentScore} <br> Computer score: ${computerCurrentScore}`;
+    playerWin++;
+    console.log(playerWin);
+    
+    allRounds.push({
+      gameId: rounds,
+      playerScore: playerCurrentScore,
+      computerScore: computerCurrentScore,
+      playerWins: playerWin,
+      computerWins: computerWin,
+    })
+    console.log(allRounds);
+    playerAvgWins = allRounds[allRounds.length - 1].playerWins / allRounds.length;
+    computerAvgWins = allRounds[allRounds.length - 1].computerWins / allRounds.length;
+    AvgWinsYou.innerHTML = parseFloat(playerAvgWins).toFixed(2);
+    AvgWinsComputer.innerHTML = parseFloat(computerAvgWins).toFixed(2);
+    playerLastRoundScore = allRounds[allRounds.length - 1].playerScore;
+    computerLastRoundScore = allRounds[allRounds.length - 1].computerScore;
+    lastRoundScoreYou.innerHTML = playerLastRoundScore;
+    lastRoundScoreComputer.innerHTML = computerLastRoundScore;
     rounds++;
     localStorage.setItem('key', rounds);
     totalRounds.innerHTML = localStorage.getItem('key') || rounds;
-    
+
     
   } 
   else if(computerCurrentScore === 3) {
     winPopup.classList.toggle('popup-show');
     playgroundPage.classList.toggle('playground-page-popup-active');
     popupWinText.innerHTML = `Computer win <br> Computer score: ${computerCurrentScore} <br> Player score: ${playerCurrentScore}`;
+    computerWin++;
+    console.log(computerWin);
+    
+    allRounds.push({
+      gameId: rounds,
+      playerScore: playerCurrentScore,
+      computerScore: computerCurrentScore,
+      playerWins: playerWin,
+      computerWins: computerWin,
+    })
+    console.log(allRounds);
+    playerAvgWins = allRounds[allRounds.length - 1].playerWins / allRounds.length;
+    computerAvgWins  = allRounds[allRounds.length - 1].computerWins / allRounds.length;
+    AvgWinsYou.innerHTML = parseFloat(playerAvgWins).toFixed(2);
+    AvgWinsComputer.innerHTML = parseFloat(computerAvgWins).toFixed(2);
+    playerLastRoundScore = allRounds[allRounds.length - 1].playerScore;
+    computerLastRoundScore = allRounds[allRounds.length - 1].computerScore;
+    lastRoundScoreYou.innerHTML = playerLastRoundScore;
+    lastRoundScoreComputer.innerHTML = computerLastRoundScore;
     rounds++;
     localStorage.setItem('key', rounds);
     totalRounds.innerHTML = localStorage.getItem('key') || rounds;
     
   } 
+  console.log(allRounds);
+  
+
   ctaPlayAgain.addEventListener('click', (e) => {
     e.preventDefault();
     winPopup.classList.remove('popup-show');
@@ -174,6 +218,17 @@ const resetStates = () => {
 }
 
 restartGame.addEventListener('click', resetStates);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
