@@ -70,7 +70,8 @@ function checkWinner() {
       computerScore: computerCurrentScore,
       playerWins: playerWin,
       computerWins: computerWin,
-    })
+    });
+    localStorage.setItem('keyArr', allRounds);
     console.log(allRounds);
     playerAvgWins = allRounds[allRounds.length - 1].playerWins / allRounds.length;
     computerAvgWins = allRounds[allRounds.length - 1].computerWins / allRounds.length;
@@ -83,6 +84,7 @@ function checkWinner() {
     rounds++;
     localStorage.setItem('key', rounds);
     totalRounds.innerHTML = localStorage.getItem('key') || rounds;
+   
 
     
   } 
@@ -100,6 +102,7 @@ function checkWinner() {
       playerWins: playerWin,
       computerWins: computerWin,
     })
+    localStorage.setItem('keyArr', allRounds);
     console.log(allRounds);
     playerAvgWins = allRounds[allRounds.length - 1].playerWins / allRounds.length;
     computerAvgWins  = allRounds[allRounds.length - 1].computerWins / allRounds.length;
@@ -112,6 +115,7 @@ function checkWinner() {
     rounds++;
     localStorage.setItem('key', rounds);
     totalRounds.innerHTML = localStorage.getItem('key') || rounds;
+    localStorage.setItem('keyArr', allRounds);
     
   } 
   console.log(allRounds);
