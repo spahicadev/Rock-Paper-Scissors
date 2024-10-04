@@ -13,7 +13,7 @@
   background: linear-gradient(#e66465, #9198e5);
 }
 
-.inital-page-popup-active {
+.homepage--popup--show-popup-active {
   background: linear-gradient(#e66465, #9198e5);
   filter: blur(8px);
 }
@@ -94,7 +94,7 @@ svg {
   cursor: pointer;
 }
 
-.footer-inital-page {
+.footer-homepage--popup--show {
   height: 80px;
   width: 100%;
   position: fixed;

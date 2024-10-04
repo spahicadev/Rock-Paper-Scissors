@@ -1,5 +1,5 @@
 //DOM
-const initialPage = document.querySelector('.initial-page');
+const initialPage = document.querySelector('.homepage');
 const itemListRules = document.querySelector('.list-item-js');
 const rulesPopup = document.querySelector('.rules-popup-js');
 const popupCloseButton = document.querySelector('.close-button-js');
@@ -35,32 +35,32 @@ liICon.addEventListener('click', () => {
 //Homepage DOM, I see similar code. So at the end i will try to do that with DRY conecpt(shorter)
 itemListRules.addEventListener('click', (e) => {
   e.preventDefault();
-  rulesPopup.classList.toggle('popup-show');
-  initialPage.classList.toggle('inital-page-popup-active');
+  rulesPopup.classList.toggle('popup--show');
+  initialPage.classList.toggle('homepage--popup--show');
   popupCloseButton.addEventListener('click', (e) => {
     e.preventDefault();
-    rulesPopup.classList.remove('popup-show');
-    initialPage.classList.remove('inital-page-popup-active');
+    rulesPopup.classList.remove('popup--show');
+    initialPage.classList.remove('homepage--popup--show');
   })
 })
 aboutIcon.addEventListener('click', (e) => {
   e.preventDefault();
-  aboutPopup.classList.toggle('popup-show');
-  initialPage.classList.toggle('inital-page-popup-active');
+  aboutPopup.classList.toggle('popup--show');
+  initialPage.classList.toggle('homepage--popup--show');
   aboutCloseButton.addEventListener('click', (e) => {
     e.preventDefault();
-    aboutPopup.classList.remove('popup-show');
-    initialPage.classList.remove('inital-page-popup-active');
+    aboutPopup.classList.remove('popup--show');
+    initialPage.classList.remove('homepage--popup--show');
   })
 })
 aboutIntrestingIcon.addEventListener('click', (e) => {
   e.preventDefault();
-  intrestingPopup.classList.toggle('popup-show');
-  initialPage.classList.toggle('inital-page-popup-active');
+  intrestingPopup.classList.toggle('popup--show');
+  initialPage.classList.toggle('homepage--popup--show');
   intrestingCloseButton.addEventListener('click', (e) => {
     e.preventDefault();
-    intrestingPopup.classList.remove('popup-show');
-    initialPage.classList.remove('inital-page-popup-active');
+    intrestingPopup.classList.remove('popup--show');
+    initialPage.classList.remove('homepage--popup--show');
   })
 })
 
