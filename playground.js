@@ -23,18 +23,28 @@ backToHomepage.addEventListener('click', () => {
 })
 
 //STATEs
+let rounds = localStorage.getItem('key') || 0;
+let allRounds = JSON.parse(localStorage.getItem('keyArr')) || [];
 let playerCurrentScore = 0;
 let computerCurrentScore = 0;
-let playerLastRoundScore = 0;
-let computerLastRoundScore = 0;
-let rounds = localStorage.getItem('key') || 0;
+let playerWins = 0;
+let computerWins = 0;
+let playerLastRoundScore;
+let computerLastRoundScore;
+allRounds.length > 0 ? playerLastRoundScore = allRounds[allRounds.length - 1 ].playerScore : playerLastRoundScore = 0
+allRounds.length > 0 ? computerLastRoundScore = allRounds[allRounds.length - 1 ].computerScore : computerLastRoundScore = 0
 let playerAvgWins = 0;
 let computerAvgWins = 0;
-let allRounds = [];
+const maxRounds = 3;
 const moves = ['rock', 'paper', 'scissors'];
 let playerMove;
 let computerMove;
-const maxRounds = 3;
+
+//localStorageModal
+totalRounds.innerHTML = localStorage.getItem('key') || rounds;
+lastRoundScoreYou.innerHTML = playerLastRoundScore;
+lastRoundScoreComputer.innerHTML = computerLastRoundScore;
+
 
 function getRandomMove() {
   return computerMove = moves[Math.floor(Math.random() * moves.length)];
@@ -50,27 +60,23 @@ function renderMoveIcon(move) {
 }
 }
 
-totalRounds.innerHTML = localStorage.getItem('key') || rounds;
-let playerWin = 0;
-let computerWin = 0;
-playerAvgWins = 0;
-computerAvgWins = 0;
+
+
 function checkWinner() {
   if(playerCurrentScore === maxRounds) {
-    winPopup.classList.toggle('popup-show');
-    playgroundPage.classList.toggle('playground-page-popup-active');
+    winPopup.classList.add('popup-show');
+    playgroundPage.classList.add('playground-page-popup-active');
     popupWinText.innerHTML = `Player win <br> Player score: ${playerCurrentScore} <br> Computer score: ${computerCurrentScore}`;
-    playerWin++; //prilika za DRY
+    playerWins++; //prilika za DRY
   
     allRounds.push({
       gameId: rounds,
       playerScore: playerCurrentScore,
       computerScore: computerCurrentScore,
-      playerWins: playerWin,
-      computerWins: computerWin,
+      playerWins: playerWins,
+      computerWins: computerWins,
     });
-    localStorage.setItem('keyArr', allRounds);
-    console.log(allRounds);
+    localStorage.setItem('keyArr', JSON.stringify(allRounds));
     rounds++;
     localStorage.setItem('key', rounds);
     totalRounds.innerHTML = localStorage.getItem('key') || rounds;
@@ -84,20 +90,19 @@ function checkWinner() {
     lastRoundScoreComputer.innerHTML = computerLastRoundScore;    
   } 
   else if(computerCurrentScore === maxRounds) {
-    winPopup.classList.toggle('popup-show');
-    playgroundPage.classList.toggle('playground-page-popup-active');
+    winPopup.classList.add('popup-show');
+    playgroundPage.classList.add('playground-page-popup-active');
     popupWinText.innerHTML = `Computer win <br> Computer score: ${computerCurrentScore} <br> Player score: ${playerCurrentScore}`;
-    computerWin++;
+    computerWins++;
 
     allRounds.push({
       gameId: rounds,
       playerScore: playerCurrentScore,
       computerScore: computerCurrentScore,
-      playerWins: playerWin,
-      computerWins: computerWin,
+      playerWins: playerWins,
+      computerWins: computerWins,
     })
-    localStorage.setItem('keyArr', allRounds);
-    console.log(allRounds);
+    localStorage.setItem('keyArr', JSON.stringify(allRounds));
     rounds++;
     localStorage.setItem('key', rounds);
     totalRounds.innerHTML = localStorage.getItem('key') || rounds;
@@ -111,12 +116,11 @@ function checkWinner() {
     lastRoundScoreYou.innerHTML = playerLastRoundScore;
   } 
   console.log(allRounds);
-  
 
   ctaPlayAgain.addEventListener('click', (e) => {
     e.preventDefault();
-    winPopup.classList.toggle('popup-show');
-    playgroundPage.classList.toggle('playground-page-popup-active');
+    winPopup.classList.remove('popup-show');
+    playgroundPage.classList.remove('playground-page-popup-active');
     resetStates();
   })
   
@@ -196,11 +200,8 @@ const resetStates = () => {
 restartGame.addEventListener('click', resetStates);
 
 
-
-
-
-
-
+console.log(allRounds);
+console.log(playerLastRoundScore, computerLastRoundScore)
 
 //Vratiti se na staro sa foreach za winove, pozive funkcije smanjiti na 1 
 
