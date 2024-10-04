@@ -22,15 +22,14 @@ backToHomepage.addEventListener('click', () => {
   window.open('/index.html', '_self')
 })
 
-
 //STATEs
 let playerCurrentScore = 0;
 let computerCurrentScore = 0;
 let playerLastRoundScore = 0;
 let computerLastRoundScore = 0;
 let rounds = localStorage.getItem('key') || 0;
-let playerAvgWins;
-let computerAvgWins;
+let playerAvgWins = 0;
+let computerAvgWins = 0;
 let allRounds = [];
 const moves = ['rock', 'paper', 'scissors'];
 let playerMove;
@@ -44,7 +43,7 @@ function getRandomMove() {
 function renderMoveIcon(move) {
   if(computerMove === move) {
     movesComputer[0].innerHTML = move
-    movesComputer[1].remove()
+    movesComputer[1].remove() //malo razmislit da li brisati ili samo mijenjati sa =
     const img = document.createElement('img');
     img.setAttribute('src', `./assets/${move}.svg`);   
     computerBoxMoves.innerHTML = `<img class="moves" src=${img.src}>`
@@ -57,13 +56,12 @@ let computerWin = 0;
 playerAvgWins = 0;
 computerAvgWins = 0;
 function checkWinner() {
-  if(playerCurrentScore === 3) {
+  if(playerCurrentScore === maxRounds) {
     winPopup.classList.toggle('popup-show');
     playgroundPage.classList.toggle('playground-page-popup-active');
     popupWinText.innerHTML = `Player win <br> Player score: ${playerCurrentScore} <br> Computer score: ${computerCurrentScore}`;
-    playerWin++;
-    console.log(playerWin);
-    
+    playerWin++; //prilika za DRY
+  
     allRounds.push({
       gameId: rounds,
       playerScore: playerCurrentScore,
@@ -73,6 +71,9 @@ function checkWinner() {
     });
     localStorage.setItem('keyArr', allRounds);
     console.log(allRounds);
+    rounds++;
+    localStorage.setItem('key', rounds);
+    totalRounds.innerHTML = localStorage.getItem('key') || rounds;
     playerAvgWins = allRounds[allRounds.length - 1].playerWins / allRounds.length;
     computerAvgWins = allRounds[allRounds.length - 1].computerWins / allRounds.length;
     AvgWinsYou.innerHTML = parseFloat(playerAvgWins).toFixed(2);
@@ -80,21 +81,14 @@ function checkWinner() {
     playerLastRoundScore = allRounds[allRounds.length - 1].playerScore;
     computerLastRoundScore = allRounds[allRounds.length - 1].computerScore;
     lastRoundScoreYou.innerHTML = playerLastRoundScore;
-    lastRoundScoreComputer.innerHTML = computerLastRoundScore;
-    rounds++;
-    localStorage.setItem('key', rounds);
-    totalRounds.innerHTML = localStorage.getItem('key') || rounds;
-   
-
-    
+    lastRoundScoreComputer.innerHTML = computerLastRoundScore;    
   } 
-  else if(computerCurrentScore === 3) {
+  else if(computerCurrentScore === maxRounds) {
     winPopup.classList.toggle('popup-show');
     playgroundPage.classList.toggle('playground-page-popup-active');
     popupWinText.innerHTML = `Computer win <br> Computer score: ${computerCurrentScore} <br> Player score: ${playerCurrentScore}`;
     computerWin++;
-    console.log(computerWin);
-    
+
     allRounds.push({
       gameId: rounds,
       playerScore: playerCurrentScore,
@@ -104,27 +98,25 @@ function checkWinner() {
     })
     localStorage.setItem('keyArr', allRounds);
     console.log(allRounds);
-    playerAvgWins = allRounds[allRounds.length - 1].playerWins / allRounds.length;
-    computerAvgWins  = allRounds[allRounds.length - 1].computerWins / allRounds.length;
-    AvgWinsYou.innerHTML = parseFloat(playerAvgWins).toFixed(2);
-    AvgWinsComputer.innerHTML = parseFloat(computerAvgWins).toFixed(2);
-    playerLastRoundScore = allRounds[allRounds.length - 1].playerScore;
-    computerLastRoundScore = allRounds[allRounds.length - 1].computerScore;
-    lastRoundScoreYou.innerHTML = playerLastRoundScore;
-    lastRoundScoreComputer.innerHTML = computerLastRoundScore;
     rounds++;
     localStorage.setItem('key', rounds);
     totalRounds.innerHTML = localStorage.getItem('key') || rounds;
-    localStorage.setItem('keyArr', allRounds);
-    
+    computerAvgWins  = allRounds[allRounds.length - 1].computerWins / allRounds.length;
+    playerAvgWins = allRounds[allRounds.length - 1].playerWins / allRounds.length;
+    AvgWinsComputer.innerHTML = parseFloat(computerAvgWins).toFixed(2);
+    AvgWinsYou.innerHTML = parseFloat(playerAvgWins).toFixed(2);
+    computerLastRoundScore = allRounds[allRounds.length - 1].computerScore;
+    playerLastRoundScore = allRounds[allRounds.length - 1].playerScore;
+    lastRoundScoreComputer.innerHTML = computerLastRoundScore;
+    lastRoundScoreYou.innerHTML = playerLastRoundScore;
   } 
   console.log(allRounds);
   
 
   ctaPlayAgain.addEventListener('click', (e) => {
     e.preventDefault();
-    winPopup.classList.remove('popup-show');
-    playgroundPage.classList.remove('playground-page-popup-active');
+    winPopup.classList.toggle('popup-show');
+    playgroundPage.classList.toggle('playground-page-popup-active');
     resetStates();
   })
   
@@ -136,76 +128,57 @@ movesYou.forEach((move) => {
     if(e.target.id === 'rock') {
       playerMove = e.target.id;
       chosingYou.innerHTML = playerMove;
-      console.log(playerMove);
-      getRandomMove()
-      renderMoveIcon(computerMove);
-      console.log(computerMove);      
+      getRandomMove();
+      renderMoveIcon(computerMove);     
       if(playerMove === computerMove) {
         console.log('TIE');
       } else if(playerMove === 'rock' && computerMove === 'paper') {
-        console.log('Computer win');
         computerCurrentScore++;
         currentRoundScoreComputer.innerHTML = computerCurrentScore;
-        console.log(computerCurrentScore);
         checkWinner();
       } else if(playerMove === 'rock' && computerMove === 'scissors') {
-        console.log('Player win');
         playerCurrentScore++;
         currentRoundScoreYou.innerHTML = playerCurrentScore;
-        console.log(playerCurrentScore);
         checkWinner();
       }
     }
     else if(e.target.id === 'paper') {
       playerMove = e.target.id;
-      console.log(playerMove);
       chosingYou.innerHTML = playerMove;
-      getRandomMove()
+      getRandomMove();
       renderMoveIcon(computerMove);
-      console.log(computerMove);
       if(playerMove === computerMove) {
         console.log('TIE');
       } else if(playerMove === 'paper' && computerMove === 'rock') {
-        console.log('Player win');
         playerCurrentScore++;
         currentRoundScoreYou.innerHTML = playerCurrentScore;
-        console.log(computerCurrentScore);
         checkWinner();
       } else if(playerMove === 'paper' && computerMove === 'scissors') {
-        console.log('Computer win')
         computerCurrentScore++;
         currentRoundScoreComputer.innerHTML = computerCurrentScore;
-        console.log(computerCurrentScore);
         checkWinner();
       }
     }
     else if(e.target.id === 'scissors') {
-      playerMove = e.target.id
+      playerMove = e.target.id;
       chosingYou.innerHTML = playerMove;
-      console.log(playerMove);
-      getRandomMove()
+      getRandomMove();
       renderMoveIcon(computerMove);
-      console.log(computerMove);
       if(playerMove === computerMove) {
         console.log('TIE');
       } else if(playerMove === 'scissors' && computerMove === 'rock') {
-        console.log('Computer win');
         computerCurrentScore++;
         currentRoundScoreComputer.innerHTML = computerCurrentScore;
-        console.log(computerCurrentScore);
         checkWinner();
       } else if(playerMove === 'scissors' && computerMove === 'paper') {
-        console.log('Player win')
         playerCurrentScore++;
         currentRoundScoreYou.innerHTML = playerCurrentScore;
-        console.log(playerCurrentScore);
         checkWinner();
       }
     }
   })
 })
 };
-
 playingGame();
 
 const resetStates = () => {
@@ -220,7 +193,6 @@ const resetStates = () => {
   playerMove = null;
   computerMove = null;
 }
-
 restartGame.addEventListener('click', resetStates);
 
 
@@ -229,6 +201,8 @@ restartGame.addEventListener('click', resetStates);
 
 
 
+
+//Vratiti se na staro sa foreach za winove, pozive funkcije smanjiti na 1 
 
 
 

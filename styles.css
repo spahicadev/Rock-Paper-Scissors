@@ -299,6 +299,7 @@ hr {
 .moves {
   width: 50px;
   height: 50px;
+  cursor: pointer;
 }
 
 
@@ -309,6 +310,7 @@ hr {
   border-radius: 4px;
   background-color: rgba(0, 0, 0, 0.06);
   font-size: 15px;
+  cursor: pointer;
 }
 
 .restart-btn {
