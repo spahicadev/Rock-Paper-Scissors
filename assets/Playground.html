@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://127.0.0.1:5500/playground.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Playground</title>
+  <link rel="stylesheet" href="./Playground_files/styles.css">
+</head>
+<body>
+  <main class="playground-page">
+  <aside id="sidebar">
+    <h4 class="headline-sidebar">Stats...</h4>
+    <div>
+      <p>Current round</p>
+      <p>You:<span class="current-round-score-you">0</span></p>
+      <p>Computer:<span class="current-round-score-computer">0</span></p>
+    </div>
+    <hr>
+    <div>
+      <p>Last round</p>
+      <p>You: <span class="last-round-score-you">0</span></p>
+      <p>Computer: <span class="last-round-score-computer">0</span></p>
+    </div>
+    <hr>
+    <div>
+      <p>Total rounds</p>
+        <p class="total-rounds">0</p>
+    </div>
+    <hr>
+    <div>
+      <p>Average wins</p>
+        <p>You: <span class="you-avg-wins">0</span>%</p>
+        <p>Computer: <span class="computer-avg-wins">0</span>%</p>
+    </div>
+    <hr>
+    <button class="btn-homepage btn-homepage-js">Back to homepage</button>
+  </aside>
+  <section class="play-box">
+    <div class="playerBox">
+      <h2>YOU</h2>
+      <p class="chosed-move-you">Choosing...</p>
+      <div class="moves-box">
+        <img id="rock" class="moves" src="./Playground_files/rock.svg">
+        <img id="paper" class="moves" src="./Playground_files/paper.svg">
+        <img id="scissors" class="moves" src="./Playground_files/scissors.svg">
+      </div>
+    </div>
+    <div class="computerBox">
+      <h2>Computer</h2>
+        <p class="chosed-move-computer">Choosing...</p>
+        <div class="moves-box computer-box">Will take...</div>
+      </div>
+    
+  </section>
+  <span class="restart-btn restart-btn-js"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"></path>
+  </svg>
+  </span>
+  </main>
+  <article class="popup-win popup-win-js"> 
+    <p class="win-text">Player win <br> Player score: 3 <br> Computer score: 2</p>
+    <button class="cta-play-again cta-play-again-js">Play again</button>
+</article>
+  <script src="./Playground_files/playground.js"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

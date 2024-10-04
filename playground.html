@@ -17,8 +17,8 @@
     <hr>
     <div>
       <p>Last round</p>
-      <p>You:<span class="last-round-score-you"></span></p>
-      <p>Computer:<span class="last-round-score-computer"></span></p>
+      <p>You: <span class="last-round-score-you"></span></p>
+      <p>Computer: <span class="last-round-score-computer"></span></p>
     </div>
     <hr>
     <div>
@@ -28,8 +28,8 @@
     <hr>
     <div>
       <p>Average wins</p>
-        <p>You:<span class="you-avg-wins">0</span>%</p>
-        <p>Computer:<span class="computer-avg-wins">0</span>%</p>
+        <p>You: <span class="you-avg-wins"></span>%</p>
+        <p>Computer: <span class="computer-avg-wins"></span>%</p>
     </div>
     <hr>
     <button class="btn-homepage btn-homepage-js">Back to homepage</button>
@@ -57,10 +57,19 @@
     <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
   </svg>
   </span>
+  <span class="clear-session-btn clear-session-btn-js"><img class="clear-session" src="./assets/clear-session.png">
+  </span>
   </main>
   <article class="popup-win popup-win-js"> 
     <p class="win-text"></p>
     <button class="cta-play-again cta-play-again-js">Play again</button>
+</article>
+  <article class="popup-alert popup-alert-js"> 
+    <p class="alert-text">This action will delete your session, which means the current game and game statistics</p>
+  <div class="buttons-popup">
+    <button class="delete delete-js">Delete!</button>
+    <button class="keep keep-js">Keep playing!</button>
+  </div>
 </article>
   <script src="playground.js"></script>
 </body>

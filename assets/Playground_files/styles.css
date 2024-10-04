@@ -193,28 +193,6 @@ svg {
   text-align: center;
 }
 
-.popup-alert {
-  height: 200px;
-  width: 400px;
-  background-color: red;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 12px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -200px;
-  margin-top: -100px;
-  transform: scale(0);
-  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
-  opacity: 0;
-  visibility: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
 .cta-play-again {
   margin-top: 10px;
   background-color: #9198e5;
@@ -340,38 +318,6 @@ hr {
   right: 3%;
   top: 3%;
   cursor: pointer;
-}
-.clear-session-btn {
-  position: absolute;
-  right: 3%;
-  top: 10%;
-  cursor: pointer;
-}
-
-.clear-session {
-  width: 40px;
-}
-
-.buttons-popup {
-  margin-top: 15px;
-  display: flex;
-  column-gap: 15px;
-}
-
-.delete, .keep {
-  border: none;
-  padding: 8px;
-  border-radius: 2px;
-  cursor: pointer;
-  
-}
-
-.delete {
-  background-color: #ca3a3a;
-}
-
-.keep {
-  background-color: rgba(87, 87, 238, 0.785);
 }
 
 

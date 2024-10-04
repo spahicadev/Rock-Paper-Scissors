@@ -16,10 +16,6 @@ const winPopup = document.querySelector('.popup-win-js');
 const playgroundPage = document.querySelector('.playground-page');
 const popupWinText = document.querySelector('.win-text');
 const ctaPlayAgain = document.querySelector('.cta-play-again');
-const clearSession = document.querySelector('.clear-session-btn-js');
-const clearSessionPopup = document.querySelector('.popup-alert-js');
-const deleteSessionBtn = document.querySelector('.delete-js');
-const keepPlayingBtn = document.querySelector('.keep-js');
 
 //btns
 backToHomepage.addEventListener('click', () => {
@@ -207,23 +203,6 @@ const resetStates = () => {
   chosingYou.innerHTML = `Choosing...`
   playerMove = null;
   computerMove = null;
-}
-restartGame.addEventListener('click', resetStates);
-
-function alertPlayer() {
-  clearSessionPopup.classList.add('popup-show');
-  playgroundPage.classList.add('playground-page-popup-active');
-  deleteSessionBtn.addEventListener('click', () => {
-  playerCurrentScore = 0;
-  computerCurrentScore = 0;
-  currentRoundScoreComputer.innerHTML = computerCurrentScore;
-  currentRoundScoreYou.innerHTML = playerCurrentScore;
-  movesComputer[0].innerHTML = `Choosing...`
-  computerBoxMoves.innerHTML = ``;
-  computerBoxMoves.innerHTML = `Will take...`;
-  chosingYou.innerHTML = `Choosing...`
-  playerMove = null;
-  computerMove = null;
   localStorage.removeItem('keyArr')
   localStorage.removeItem('key')
   totalRounds.innerHTML = 0;
@@ -232,16 +211,9 @@ function alertPlayer() {
   console.log(playerAvgWins, computerAvgWins);
   AvgWinsYou.innerHTML = 0;
   AvgWinsComputer.innerHTML = 0;
-  clearSessionPopup.classList.remove('popup-show');
-  playgroundPage.classList.remove('playground-page-popup-active');
-  })
-  keepPlayingBtn.addEventListener('click', () => {
-    clearSessionPopup.classList.remove('popup-show');
-    playgroundPage.classList.remove('playground-page-popup-active');
-  })
-};
 
-clearSession.addEventListener('click', alertPlayer);
+}
+restartGame.addEventListener('click', resetStates);
 
 
 //Vratiti se na staro sa foreach za winove, pozive funkcije smanjiti na 1 
