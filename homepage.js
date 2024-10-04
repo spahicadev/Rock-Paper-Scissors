@@ -16,53 +16,35 @@ const heroGoToPlay = document.querySelector('.cta-button-js');
 const gitIcon = document.querySelector('.git-js');
 const liICon = document.querySelector('.li-js');
 
-//DRY?!
 
-//btns
-goToPlay.addEventListener('click', () => {
-  window.open('/playground.html', '_self');
-})
-heroGoToPlay.addEventListener('click', () => {
-  window.open('/playground.html', '_self');
-})
-gitIcon.addEventListener('click', () => {
-  window.open("https://github.com/spahicadev");
-})
-liICon.addEventListener('click', () => {
-  window.open("https://www.linkedin.com/in/spahica/");
-})
+function openWindow(target, link) {
+  target.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.open(link)
+  })
+};
+openWindow(goToPlay, '/playground.html', '_self');
+openWindow(heroGoToPlay, '/playground.html', '_self');
+openWindow(gitIcon, 'https://github.com/spahicadev');
+openWindow(liICon, 'https://www.linkedin.com/in/spahica/');
 
-//Homepage DOM, I see similar code. So at the end i will try to do that with DRY conecpt(shorter)
-itemListRules.addEventListener('click', (e) => {
-  e.preventDefault();
-  rulesPopup.classList.toggle('popup--show');
-  initialPage.classList.toggle('homepage--popup--show');
-  popupCloseButton.addEventListener('click', (e) => {
+function popupsManipulation(target, popup, page, close) {
+  target.addEventListener('click', (e) => {
     e.preventDefault();
-    rulesPopup.classList.remove('popup--show');
-    initialPage.classList.remove('homepage--popup--show');
-  })
-})
-aboutIcon.addEventListener('click', (e) => {
-  e.preventDefault();
-  aboutPopup.classList.toggle('popup--show');
-  initialPage.classList.toggle('homepage--popup--show');
-  aboutCloseButton.addEventListener('click', (e) => {
+    popup.classList.add('popup--show');
+    page.classList.add('homepage--popup--show');
+  close.addEventListener('click', (e) => {
     e.preventDefault();
-    aboutPopup.classList.remove('popup--show');
-    initialPage.classList.remove('homepage--popup--show');
+    popup.classList.remove('popup--show');
+    page.classList.remove('homepage--popup--show');
   })
-})
-aboutIntrestingIcon.addEventListener('click', (e) => {
-  e.preventDefault();
-  intrestingPopup.classList.toggle('popup--show');
-  initialPage.classList.toggle('homepage--popup--show');
-  intrestingCloseButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    intrestingPopup.classList.remove('popup--show');
-    initialPage.classList.remove('homepage--popup--show');
   })
-})
+}
+popupsManipulation(itemListRules, rulesPopup, initialPage, popupCloseButton);
+popupsManipulation(aboutIcon, aboutPopup, initialPage, aboutCloseButton);
+popupsManipulation(aboutIntrestingIcon, intrestingPopup, initialPage, intrestingCloseButton);
+
+
 
 
 
