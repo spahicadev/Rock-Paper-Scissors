@@ -12,10 +12,24 @@ const aboutIntrestingIcon = document.querySelector('.intresting-document-js');
 const goToPlay = document.querySelector('.go-play-js');
 const restartGame = document.querySelector('.restart-btn-js');
 const backToHomepage = document.querySelector('.btn-homepage-js');
+const heroGoToPlay = document.querySelector('.cta-button-js');
+const gitIcon = document.querySelector('.git-js');
+const liICon = document.querySelector('.li-js');
+
+//DRY?!
 
 //btns
 goToPlay.addEventListener('click', () => {
   window.open('/playground.html', '_self');
+})
+heroGoToPlay.addEventListener('click', () => {
+  window.open('/playground.html', '_self');
+})
+gitIcon.addEventListener('click', () => {
+  window.open("https://github.com/spahicadev");
+})
+liICon.addEventListener('click', () => {
+  window.open("https://www.linkedin.com/in/spahica/");
 })
 
 //Homepage DOM, I see similar code. So at the end i will try to do that with DRY conecpt(shorter)

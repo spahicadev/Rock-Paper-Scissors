@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
-
+/*IMPLEMENT BEM */
 * {
   margin: 0;
   padding: 0;
@@ -112,6 +112,7 @@ svg {
 .git, .li {
   width: 30px;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .copyright {
