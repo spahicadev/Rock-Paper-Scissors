@@ -23,8 +23,8 @@ function openWindow(target, link) {
     window.open(link)
   })
 };
-openWindow(goToPlay, '/playground.html', '_self');
-openWindow(heroGoToPlay, '/playground.html', '_self');
+openWindow(goToPlay, 'https://spahicadev.github.io/Rock-Paper-Scissors/playground.html', '_self');
+openWindow(heroGoToPlay, 'https://spahicadev.github.io/Rock-Paper-Scissors/playground.html', '_self');
 openWindow(gitIcon, 'https://github.com/spahicadev');
 openWindow(liICon, 'https://www.linkedin.com/in/spahica/');
 

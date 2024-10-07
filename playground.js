@@ -23,7 +23,7 @@ const keepPlayingBtn = document.querySelector('.keep-js');
 
 //btns
 backToHomepage.addEventListener('click', () => {
-  window.open('/index.html', '_self')
+  window.open('https://spahicadev.github.io/Rock-Paper-Scissors/index.html', '_self')
 })
 
 //STATEs
