@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Playground</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="playground playground-js">
+  <aside class="playground__sidebar">
+    <h4 class="playground__sidebar-headline">Stats...</h4>
+    <div class="playground__sidebar-box">
+      <p class="playground__sidebar-box-headline">Current round</p>
+      <p class="playground__sidebar-box-content">You:<span class="current-round-score-you"></span></p>
+      <p class="playground__sidebar-box-content">Computer:<span class="current-round-score-computer"></span></p>
+    </div>
+    <hr class="playground__sidebar-hr">
+    <div class="playground__sidebar-box">
+      <p class="playground__sidebar-box-headline">Last round</p>
+      <p class="playground__sidebar-box-content">You: <span class="last-round-score-you"></span></p>
+      <p class="playground__sidebar-box-content">Computer: <span class="last-round-score-computer"></span></p>
+    </div>
+    <hr class="playground__sidebar-hr">
+    <div class="playground__sidebar-box">
+      <p class="playground__sidebar-box-headline">Total rounds</p>
+      <p class="playground__sidebar-box-content total-rounds">0</p>
+    </div>
+    <hr class="playground__sidebar-hr">
+    <div class="playground__sidebar-box">
+      <p class="playground__sidebar-box-headline">Average wins</p>
+        <p class="playground__sidebar-box-content">You: <span class="you-avg-wins"></span>%</p>
+        <p class="playground__sidebar-box-content">Computer: <span class="computer-avg-wins"></span>%</p>
+    </div>
+    <hr class="playground__sidebar-hr">
+    <button class="playground__sidebar-button btn-homepage btn-homepage-js">Back to homepage</button>
+  </aside>
+  <section class="playground__box">
+    <div class="playground__box-player">
+      <h2 class="playground__box-player-heading">YOU</h2>
+      <p class="playground__box-player-choosing chosed-move-you">Choosing...</p>
+      <div class="playground__box-player-moves box--moves">
+        <img id="rock" class="playground__box-player-move" src="./assets/rock.svg">
+        <img id="paper" class="playground__box-player-move" src="./assets/paper.svg">
+        <img id="scissors" class="playground__box-player-move" src="./assets/scissors.svg">
+      </div>
+    </div>
+    <div class="playground__box-computer">
+      <h2 class="playground__box-computer-heading">Computer</h2>
+        <p class="playground__box-computer-choosing">Choosing...</p>
+        <div class="playground__box-computer-moves box--moves computer-box">
+          <p class="playground__box-computer-move chosed-move-computer playground__box-computer-choosing">Will take...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <span class="playground__btn-restart restart-btn-js"><svg class="playground__btn-restart-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+  </svg>
+  </span>
+  <span class="playground__btn-clear-session clear-session-btn-js"><img class="playground__btn-clear-session-icon" src="./assets/clear-session.png">
+  </span>
+  </main>
+  <article class="playground__popup playground__popup--win popup-win-js"> 
+    <p class="playground__popup-text win-text-js"></p>
+    <button class="playground__popup-btn-cta-again cta-play-again cta-play-again-js">Play again</button>
+</article>
+  <article class="playground__popup playground__popup--alert popup-alert-js"> 
+    <p class="playground__popup-text alert-text">This action will delete your session, which means the current game and game statistics</p>
+  <div class="playground__popup-buttons buttons-popup">
+    <button class="playground__popup--buttons-delete delete-js">Delete!</button>
+    <button class="playground__popup--buttons-keep keep-js">Keep playing!</button>
+  </div>
+</article>
+  <script src="playground.js"></script>
+</body>
+</html>
