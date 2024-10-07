@@ -222,7 +222,7 @@ function alertPlayer() {
   computerMove = null;
   localStorage.removeItem('keyArr')
   localStorage.removeItem('key')
-  window.reload();
+  location.reload();
   totalRounds.innerHTML = 0;
   lastRoundScoreYou.innerHTML = 0;
   lastRoundScoreComputer.innerHTML = 0;
