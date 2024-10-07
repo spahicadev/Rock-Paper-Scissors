@@ -1,4 +1,5 @@
 //DOM
+const playgroundPage = document.querySelector('.playground-js');
 const restartGame = document.querySelector('.restart-btn-js');
 const backToHomepage = document.querySelector('.btn-homepage-js');
 const currentRoundScoreYou = document.querySelector('.current-round-score-you');
@@ -8,14 +9,13 @@ const lastRoundScoreComputer = document.querySelector('.last-round-score-compute
 const totalRounds = document.querySelector('.total-rounds');
 const AvgWinsYou = document.querySelector('.you-avg-wins');
 const AvgWinsComputer = document.querySelector('.computer-avg-wins');
-const movesYou = document.querySelectorAll('.moves');
+const movesYou = document.querySelectorAll('.playground__box-player-move');
 const chosingYou = document.querySelector('.chosed-move-you');
-const movesComputer = document.querySelectorAll('.chosed-move-computer');
+const movesComputer = document.querySelectorAll('.playground__box-computer-choosing');
 const computerBoxMoves = document.querySelector('.computer-box');
 const winPopup = document.querySelector('.popup-win-js');
-const playgroundPage = document.querySelector('.playground-page');
-const popupWinText = document.querySelector('.win-text');
-const ctaPlayAgain = document.querySelector('.cta-play-again');
+const popupWinText = document.querySelector('.win-text-js');
+const ctaPlayAgain = document.querySelector('.cta-play-again-js');
 const clearSession = document.querySelector('.clear-session-btn-js');
 const clearSessionPopup = document.querySelector('.popup-alert-js');
 const deleteSessionBtn = document.querySelector('.delete-js');
@@ -46,14 +46,13 @@ const moves = ['rock', 'paper', 'scissors'];
 let playerMove;
 let computerMove;
 
-//localStorageModal
+//localStorage
 totalRounds.innerHTML = localStorage.getItem('key') || rounds;
 lastRoundScoreYou.innerHTML = playerLastRoundScore;
 lastRoundScoreComputer.innerHTML = computerLastRoundScore;
 console.log(playerAvgWins, computerAvgWins);
 AvgWinsYou.innerHTML = parseFloat(playerAvgWins).toFixed(2);
 AvgWinsComputer.innerHTML = parseFloat(computerAvgWins).toFixed(2);
-
 currentRoundScoreYou.innerHTML = playerCurrentScore;
 currentRoundScoreComputer.innerHTML = computerCurrentScore;
 
@@ -64,20 +63,19 @@ function getRandomMove() {
 function renderMoveIcon(move) {
   if(computerMove === move) {
     movesComputer[0].innerHTML = move
-    movesComputer[1].remove() //malo razmislit da li brisati ili samo mijenjati sa =
+    movesComputer[1].remove()
     const img = document.createElement('img');
     img.setAttribute('src', `./assets/${move}.svg`);   
     computerBoxMoves.innerHTML = `<img class="moves" src=${img.src}>`
 }
 }
 
-
 function checkWinner() {
   if(playerCurrentScore === maxRounds) {
-    winPopup.classList.add('popup-show');
-    playgroundPage.classList.add('playground-page-popup-active');
+    winPopup.classList.add('popup--show');
+    playgroundPage.classList.add('playground--popup-show');
     popupWinText.innerHTML = `Player win <br> Player score: ${playerCurrentScore} <br> Computer score: ${computerCurrentScore}`;
-    playerWins++; //prilika za DRY
+    playerWins++; 
   
     allRounds.push({
       gameId: rounds,
@@ -100,8 +98,8 @@ function checkWinner() {
     lastRoundScoreComputer.innerHTML = computerLastRoundScore;    
   } 
   else if(computerCurrentScore === maxRounds) {
-    winPopup.classList.add('popup-show');
-    playgroundPage.classList.add('playground-page-popup-active');
+    winPopup.classList.add('popup--show');
+    playgroundPage.classList.add('playground--popup-show');
     popupWinText.innerHTML = `Computer win <br> Computer score: ${computerCurrentScore} <br> Player score: ${playerCurrentScore}`;
     computerWins++;
 
@@ -125,12 +123,11 @@ function checkWinner() {
     lastRoundScoreComputer.innerHTML = computerLastRoundScore;
     lastRoundScoreYou.innerHTML = playerLastRoundScore;
   } 
-  console.log(allRounds);
 
   ctaPlayAgain.addEventListener('click', (e) => {
     e.preventDefault();
-    winPopup.classList.remove('popup-show');
-    playgroundPage.classList.remove('playground-page-popup-active');
+    winPopup.classList.remove('popup--show');
+    playgroundPage.classList.remove('playground--popup-show');
     resetStates();
   })
   
@@ -196,7 +193,6 @@ movesYou.forEach((move) => {
 playingGame();
 
 const resetStates = () => {
-  
   playerCurrentScore = 0;
   computerCurrentScore = 0;
   currentRoundScoreComputer.innerHTML = computerCurrentScore;
@@ -211,8 +207,8 @@ const resetStates = () => {
 restartGame.addEventListener('click', resetStates);
 
 function alertPlayer() {
-  clearSessionPopup.classList.add('popup-show');
-  playgroundPage.classList.add('playground-page-popup-active');
+  clearSessionPopup.classList.add('popup--show');
+  playgroundPage.classList.add('playground--popup-show');
   deleteSessionBtn.addEventListener('click', () => {
   playerCurrentScore = 0;
   computerCurrentScore = 0;
@@ -232,19 +228,19 @@ function alertPlayer() {
   console.log(playerAvgWins, computerAvgWins);
   AvgWinsYou.innerHTML = 0;
   AvgWinsComputer.innerHTML = 0;
-  clearSessionPopup.classList.remove('popup-show');
-  playgroundPage.classList.remove('playground-page-popup-active');
+  clearSessionPopup.classList.remove('popup--show');
+  playgroundPage.classList.remove('playground--popup-show');
   })
   keepPlayingBtn.addEventListener('click', () => {
-    clearSessionPopup.classList.remove('popup-show');
-    playgroundPage.classList.remove('playground-page-popup-active');
+    clearSessionPopup.classList.remove('popup--show');
+    playgroundPage.classList.remove('playground--popup-show');
   })
 };
 
 clearSession.addEventListener('click', alertPlayer);
 
 
-//Vratiti se na staro sa foreach za winove, pozive funkcije smanjiti na 1 
+
 
 
 

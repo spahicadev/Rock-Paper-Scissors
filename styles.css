@@ -272,7 +272,7 @@ body {
   justify-content: space-around;
 }
 
-.playground__box-player-move {
+.playground__box-player-move, .moves {
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -383,19 +383,19 @@ body {
   column-gap: 15px;
 }
 
-.playground__popup--buttons > button {
+.playground__popup--buttons-delete {
   border: none;
   padding: 8px;
   border-radius: 2px;
   cursor: pointer;
-  
-}
-
-.playground__popup--buttons-delete {
   background-color: #ca3a3a;
 }
 
 .playground__popup--buttons-keep {
+  border: none;
+  padding: 8px;
+  border-radius: 2px;
+  cursor: pointer;
   background-color: rgba(87, 87, 238, 0.785);
 }
 
@@ -410,6 +410,12 @@ body {
 
 .playground__popup-btn-cta-again:active {
   opacity: 0.6;
+}
+
+.popup--show {
+  transform: scale(1.2);
+  opacity: 1;
+  visibility: visible;
 }
 
 
